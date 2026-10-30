@@ -17,7 +17,7 @@ A free Windows disk cleaner that explains before it deletes. Every large file ge
 
 **Activity**
 
-<img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FSwaksm%2FSwaksm%2Foutput%2Fdownloads.json&style=flat-square&labelColor=24292f" /> <img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FSwaksm%2FSwaksm%2Foutput%2Fstars.json&style=flat-square&labelColor=24292f" /> <img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FSwaksm%2FSwaksm%2Foutput%2Fcontributions.json&style=flat-square&labelColor=24292f" />
+<img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FSwaksm%2FSwaksm%2Foutput%2Fdownloads.json&style=flat-square&labelColor=24292f&cacheSeconds=3600" /> <img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FSwaksm%2FSwaksm%2Foutput%2Fstars.json&style=flat-square&labelColor=24292f&cacheSeconds=3600" /> <img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FSwaksm%2FSwaksm%2Foutput%2Fcontributions.json&style=flat-square&labelColor=24292f&cacheSeconds=3600" />
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Swaksm/Swaksm/output/contrib-dark.svg" />
