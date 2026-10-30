@@ -27,11 +27,12 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           U: ${{ github.repository_owner }}
         run: |
-          mkdir -p dist
-          C=$(gh api graphql -f login="$U" -f query='query($login:String!){user(login:$login){contributionsCollection{contributionCalendar{totalContributions}}}}' --jq '.data.user.contributionsCollection.contributionCalendar.totalContributions')
+          sudo chown -R "$(id -u)" dist
+          C=$(gh api graphql -f login="$U" -f query='query($login:String!){user(login:$login){contributionsCollection{contributionCalendar{totalContributions}}}}' --jq '.data.user.contributionsCollection.contributionCalendar.totalContributions' || echo "?")
           REPOS=$(gh api --paginate "users/$U/repos?per_page=100" --jq '.[] | select(.fork|not) | .name')
           S=$(gh api --paginate "users/$U/repos?per_page=100" --jq '.[] | select(.fork|not) | .stargazers_count' | awk '{s+=$1} END {print s+0}')
-          D=$(for r in $REPOS; do gh api --paginate "repos/$U/$r/releases?per_page=100" --jq '.[].assets[].download_count'; done | awk '{s+=$1} END {print s+0}')
+          D=$(for r in $REPOS; do gh api --paginate "repos/$U/$r/releases?per_page=100" --jq '.[].assets[].download_count' || true; done | awk '{s+=$1} END {print s+0}')
+          echo "contrib=$C stars=$S downloads=$D"
           badge() { printf '{"schemaVersion":1,"label":"%s","message":"%s","color":"2ea043"}' "$1" "$2" > "dist/$3.json"; }
           badge downloads "$D" downloads
           badge stars "$S" stars
