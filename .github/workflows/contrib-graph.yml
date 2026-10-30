@@ -15,17 +15,31 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
+      - uses: Platane/snk@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/contrib.svg?palette=github-light
+            dist/contrib-dark.svg?palette=github-dark
 
-      - uses: yoshi389111/github-profile-3d-contrib@latest
+      - name: Stats
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          U: ${{ github.repository_owner }}
+        run: |
+          mkdir -p dist
+          C=$(gh api graphql -f login="$U" -f query='query($login:String!){user(login:$login){contributionsCollection{contributionCalendar{totalContributions}}}}' --jq '.data.user.contributionsCollection.contributionCalendar.totalContributions')
+          REPOS=$(gh api --paginate "users/$U/repos?per_page=100" --jq '.[] | select(.fork|not) | .name')
+          S=$(gh api --paginate "users/$U/repos?per_page=100" --jq '.[] | select(.fork|not) | .stargazers_count' | awk '{s+=$1} END {print s+0}')
+          D=$(for r in $REPOS; do gh api --paginate "repos/$U/$r/releases?per_page=100" --jq '.[].assets[].download_count'; done | awk '{s+=$1} END {print s+0}')
+          badge() { printf '{"schemaVersion":1,"label":"%s","message":"%s","color":"2ea043"}' "$1" "$2" > "dist/$3.json"; }
+          badge downloads "$D" downloads
+          badge stars "$S" stars
+          badge "contributions (1y)" "$C" contributions
+
+      - uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: output
+          build_dir: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          USERNAME: ${{ github.repository_owner }}
-
-      - name: Commit
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add -A profile-3d-contrib
-          git diff --cached --quiet || git commit -m "Update 3D contribution graph"
-          git push
