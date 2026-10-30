@@ -28,9 +28,8 @@ A free Windows disk cleaner that explains before it deletes. Every large file ge
 
 <img src="https://skillicons.dev/icons?i=py,rust,ts,js,html,css,nodejs,cpp,fastapi,flask,postgres,mysql,tauri,docker,linux,git,githubactions&theme=dark&perline=17" height="32" />
 
-| | |
-|---|---|
 | Languages | WLangage · Python · Rust · TypeScript · JavaScript · HTML / CSS |
+|---|---|
 | Backend | FastAPI · Flask · Playwright · discord.py · yt-dlp |
 | Data | PostgreSQL · MySQL · HFSQL · pandas · spaCy · YOLO · Hugging Face |
 | Tools | WinDev · WebDev · Tauri · Docker · Linux · Git · GitHub Actions |
