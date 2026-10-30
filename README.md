@@ -18,15 +18,22 @@ A free Windows disk cleaner that explains before it deletes. Every large file ge
 **Activity**
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Swaksm/Swaksm/output/contrib-dark.svg" />
-  <img src="https://raw.githubusercontent.com/Swaksm/Swaksm/output/contrib.svg" alt="Contribution graph" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Swaksm/Swaksm/main/profile-3d-contrib/profile-night-green.svg" />
+  <img src="https://raw.githubusercontent.com/Swaksm/Swaksm/main/profile-3d-contrib/profile-green.svg" alt="3D contribution graph" width="100%" />
 </picture>
 
 <br>
 
 **Stack**
 
-<img src="https://skillicons.dev/icons?i=rust,py,ts,js,tauri,fastapi,postgres,docker,linux,git&theme=dark" height="32" />
+<img src="https://skillicons.dev/icons?i=py,rust,ts,js,html,css,nodejs,cpp,fastapi,flask,postgres,mysql,tauri,docker,linux,git,githubactions&theme=dark&perline=17" height="32" />
+
+| | |
+|---|---|
+| Languages | WLangage · Python · Rust · TypeScript · JavaScript · HTML / CSS |
+| Backend | FastAPI · Flask · Playwright · discord.py · yt-dlp |
+| Data | PostgreSQL · MySQL · HFSQL · pandas · spaCy · YOLO · Hugging Face |
+| Tools | WinDev · WebDev · Tauri · Docker · Linux · Git · GitHub Actions |
 
 <br>
 
